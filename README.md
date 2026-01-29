@@ -1,8 +1,6 @@
 # Sparks of Rationality: Do Reasoning LLMs Align with Human Judgment and Choice?
 
-## Abstract
-
- In this work, we assess whether LLMs exhibit human-like rational deliberation and affect-driven biases in decision-making.
+In this work, we assess whether LLMs exhibit human-like rational deliberation and affect-driven biases in decision-making.
 
 ![alt text](figs/DLLM.png)
 
