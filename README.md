@@ -55,5 +55,21 @@ This saves the steer vectors under ```steer_vectors/```. Next, let's repeat the 
 python main.py --model_index=13 --dataset=rationality --thinking --steer_type=Intervention --concept_source=goemotions_instruct_full_binary --concept=fear --steer_coeff=30 --steer_layers=25,26
 ```
 
-Note that the steer layers and steer vectors need to change according to the LLM being used.
+Note that the steer layers and steer vectors must be adjusted for the LLM being used.
+
+
+## 📄 Citation
+
+If you found our work helpful, please cite this paper as:
+```
+@misc{tak2026sparksrationalityreasoningllms,
+      title={Sparks of Rationality: Do Reasoning LLMs Align with Human Judgment and Choice?}, 
+      author={Ala N. Tak and Amin Banayeeanzade and Anahita Bolourani and Fatemeh Bahrani and Ashutosh Chaubey and Sai Praneeth Karimireddy and Norbert Schwarz and Jonathan Gratch},
+      year={2026},
+      eprint={2601.22329},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2601.22329}, 
+}
+```
     
