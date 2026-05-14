@@ -1,4 +1,4 @@
-# Sparks of Rationality: Do Reasoning LLMs Align with Human Judgment and Choice?
+# Sparks of Rationality: Do Reasoning LLMs Align with Human Judgment and Choice? [arXiv](https://github.com/aminbana/psyset/](https://arxiv.org/abs/2601.22329)
 
 In this work, we assess whether LLMs exhibit human-like rational deliberation and affect-driven biases in decision-making.
 
