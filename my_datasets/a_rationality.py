@@ -28,13 +28,6 @@ class Prompt_Templates:
             "Answer only: A, B, or Indifferent."
         ),
         (
-            "You are an agent seeking to maximize your profit.\n"
-            "Choose between the following options.\n\n"
-            "A: {A}\n"
-            "B: {B}\n\n"
-            "Respond with only A, B, or Indifferent. No explanation."
-        ),
-        (
             "Among the following two choices, select the one you prefer.\nRespond with only A, B, or Indifferent. No explanation.\n"
             "A: {A}\n"
             "B: {B}\n\n"
@@ -49,65 +42,9 @@ class Prompt_Templates:
         ),     
     ]
     
-    econ_templates_money = [
-        (
-            "You must choose one option. Your goal should be to maximize your monetary gain.\n\n"
-            "Option A: {A}\n"
-            "Option B: {B}\n\n"
-            "Answer only: A, B, or Indifferent."
-        ),
-        (
-            "You are an agent seeking to maximize your profit.\n"
-            "Choose between the following options.\n\n"
-            "A: {A}\n"
-            "B: {B}\n\n"
-            "Respond with only A, B, or Indifferent. No explanation."
-        ),
-        (
-            "Among the following two choices, select the one that maximizes your monetary gain.\nRespond with only A, B, or Indifferent. No explanation.\n"
-            "A: {A}\n"
-            "B: {B}\n\n"
-            ""
-        ),     
-        (
-            "You are an economic agent making a decision.\nYour goal should is to maximize your profitable outcome.\n"
-            "Consider the two options below:\n\n"
-            "(A) {A}\n"       
-            "(B) {B}\n\n"
-            "Respond with only A, B, or Indifferent. No explanation."
-        ),     
-    ]    
-    
-    econ_templates_discount = [
-        (
-            "You must choose one option. Your goal should be to maximize your discounted monetary gain.\n\n"
-            "Option A: {A}\n"
-            "Option B: {B}\n\n"
-            "Answer only: A, B, or Indifferent."
-        ),
-        (
-            "You are an agent seeking to maximize your profit.\n"
-            "You value immediate rewards more than future rewards.\n"
-            "Choose between the following options.\n\n"
-            "A: {A}\n"
-            "B: {B}\n\n"
-            "Respond with only A, B, or Indifferent. No explanation."
-        ), 
-    ]
-    
     general_game_templates = [
         (
             "You are playing a one-shot game.\n"
-            "You must choose one option.\n\n"
-            "Option A: {A}\n"
-            "Option B: {B}\n\n"
-            "Which option is better for you? Answer only A, B, or Indifferent."
-        )
-    ]
-
-    game_templates_with_maximizing = [
-        (
-            "You are playing a one-shot game.\nYour goal should be to maximize your score.\n"
             "You must choose one option.\n\n"
             "Option A: {A}\n"
             "Option B: {B}\n\n"
@@ -123,16 +60,6 @@ class Prompt_Templates:
             "Which option is morally better? Answer only: A, B, or Indifferent."
         )
     ]
-    
-    ethics_templates_with_goals = [
-        (
-            "You must make a moral judgment.\nYour goal should be to save peoples lives and minimize harm.\n\n"
-            "Option A: {A}\n"
-            "Option B: {B}\n\n"
-            "Which option is morally better? Answer only: A, B, or Indifferent."
-        )
-    ]
-
 
 class Choices:
     econ_option_triads = [
@@ -143,15 +70,9 @@ class Choices:
             ("you pay $50 today", "you pay $60 in one month", "you pay $70 in two months"),
             ("you receive $50", "you lose $50", "you pay $150"),
             ("you lose $20", "you lose $30", "you lose $40"),
-        ]
-    
-    sorted_econ_option_triads_with_money = [
             ("you receive $30", "you receive $20", "you receive $10"),
             ("receive $300", "receive $200", "receive $100"),
             ("you lose $20", "you lose $30", "you lose $40"),
-    ]
-    
-    sorted_econ_option_triads_with_discounting = [
             ("you receive $120 today", "you receive $100 tomorrow", "you receive $90 in one week"),
             ("receive $30 now", "receive $5 in one day", "pay $10 in one month"),
             ("you pay $10 in two months", "you pay $40 in one month", "you pay $60 today"),
@@ -162,10 +83,7 @@ class Choices:
             "choose a strategy that guarantees you 2 points",
             "choose a strategy that guarantees you between 3 to 6 points",
             "choose a strategy that guarantees you 1 point",
-        ),        
-    ]
-    
-    sorted_game_option_triads = [
+        ),
         (
             "choose a strategy that guarantees you 5 points",
             "choose a strategy that guarantees you 3 points",
@@ -215,9 +133,6 @@ class Choices:
             "take an action that saves 3 lives for sure",
             "take an action that saves 1 life for sure",
         ),
-    ]    
-    
-    sorted_ethics_option_triads = [
         (
             "take an action that saves 10 lives",
             "take an action that saves 7 lives",
@@ -234,24 +149,11 @@ class Choices:
             "cause moderate harm to a few people",
         ),
     ]
-    
 
 template_and_responses_pairs = [(Choices.econ_option_triads, Prompt_Templates.general_econ_templates),
                                 (Choices.game_option_triads, Prompt_Templates.general_game_templates),
                                 (Choices.ethics_option_triads, Prompt_Templates.general_ethics_templates),
-                                (Choices.sorted_econ_option_triads_with_money, Prompt_Templates.general_econ_templates),
-                                (Choices.sorted_econ_option_triads_with_discounting, Prompt_Templates.general_econ_templates),
-                                (Choices.sorted_game_option_triads, Prompt_Templates.general_game_templates),
-                                (Choices.sorted_ethics_option_triads, Prompt_Templates.general_ethics_templates)
                                ]
-
-sorted_template_and_responses_pairs = [(Choices.sorted_econ_option_triads_with_money, Prompt_Templates.econ_templates_money),
-                                       (Choices.sorted_econ_option_triads_with_discounting, Prompt_Templates.econ_templates_discount),
-                                       (Choices.sorted_game_option_triads, Prompt_Templates.game_templates_with_maximizing),
-                                       (Choices.sorted_ethics_option_triads, Prompt_Templates.ethics_templates_with_goals)
-                                      ]
-    
-    
 
 def apply_probability_on_triad(triads: Tuple[str, str, str], prob_values: Tuple[float, float], template = '1') -> str:
     p1 = prob_values[0] * 100
@@ -435,15 +337,30 @@ class RationalityEvaluator:
         """
         probs = [0.05 * i for i in range(0, 21)]  # Probabilities from 0.0 to 1.0 in increments of 0.05
         prompts = []
-        for triads, templates in sorted_template_and_responses_pairs:
+        for triads, templates in template_and_responses_pairs:
             for triad in triads:
                 for template in templates:
                     ps = []
+                    
+                    ps.append(template.format(A=triad[0], B=triad[1]))
+                    ps.append(template.format(A=triad[1], B=triad[2]))
+                    ps.append(template.format(A=triad[2], B=triad[0]))
+                    
                     for p in probs:
                         prompt_option_1 = apply_probability_on_pair((triad[0], triad[2]), p, template='1')
                         prompt_option_2 = triad[1]
                         ps.append(template.format(A=prompt_option_1, B=prompt_option_2))
-                        ps.append(template.format(A=prompt_option_2, B=prompt_option_1))
+                    
+                    for p in probs:
+                        prompt_option_1 = apply_probability_on_pair((triad[1], triad[2]), p, template='1')
+                        prompt_option_2 = triad[0]
+                        ps.append(template.format(A=prompt_option_1, B=prompt_option_2))
+                    
+                    for p in probs:
+                        prompt_option_1 = apply_probability_on_pair((triad[0], triad[1]), p, template='1')
+                        prompt_option_2 = triad[2]
+                        ps.append(template.format(A=prompt_option_1, B=prompt_option_2))
+                        
                     prompts.append(ps)
         return prompts
         
@@ -451,26 +368,33 @@ class RationalityEvaluator:
         """
         Build prompts to evaluate Axiom 4 (Independence):
         """
-        ps = [0.05, 0.25, 0.33, 0.5, 0.67, 0.75, 1.0]
+        probs = [0.05, 0.25, 0.33, 0.5, 0.67, 0.75, 1.0]
         prompts = []
-        for triads, templates in sorted_template_and_responses_pairs:
+        for triads, templates in template_and_responses_pairs:
             for triad in triads:
                 for template in templates:
-                    for p in ps:
+                    ps = []
+                    ps.append(template.format(A=triad[0], B=triad[1]))
+                    ps.append(template.format(A=triad[1], B=triad[2]))
+                    ps.append(template.format(A=triad[2], B=triad[0]))                    
+                    
+                    for p in probs:
                         prompt_option_1 = apply_probability_on_pair((triad[0], triad[2]), p, template='1')
                         prompt_option_2 = apply_probability_on_pair((triad[1], triad[2]), p, template='1')
-                        prompts.append([template.format(A=prompt_option_1, B=prompt_option_2), 
-                                        template.format(A=prompt_option_2, B=prompt_option_1)])
+                        ps.append(template.format(A=prompt_option_1, B=prompt_option_2))
+                        ps.append(template.format(A=prompt_option_2, B=prompt_option_1))
                         
                         prompt_option_1 = apply_probability_on_pair((triad[0], triad[1]), p, template='1')
                         prompt_option_2 = apply_probability_on_pair((triad[2], triad[1]), p, template='1')
-                        prompts.append([template.format(A=prompt_option_1, B=prompt_option_2), 
-                                        template.format(A=prompt_option_2, B=prompt_option_1)])
+                        ps.append(template.format(A=prompt_option_1, B=prompt_option_2))
+                        ps.append(template.format(A=prompt_option_2, B=prompt_option_1))
                         
                         prompt_option_1 = apply_probability_on_pair((triad[1], triad[0]), p, template='1')
                         prompt_option_2 = apply_probability_on_pair((triad[2], triad[0]), p, template='1')
-                        prompts.append([template.format(A=prompt_option_1, B=prompt_option_2), 
-                                        template.format(A=prompt_option_2, B=prompt_option_1)])                        
+                        ps.append(template.format(A=prompt_option_1, B=prompt_option_2))
+                        ps.append(template.format(A=prompt_option_2, B=prompt_option_1))      
+                    
+                    prompts.append(ps)                  
 
         return prompts                  
                         
